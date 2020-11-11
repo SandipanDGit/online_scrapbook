@@ -8,35 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RESPODANT'S ENTRY</title>
 
-    <!-- SEPARATE CSS FILE TO BE LINKED HERE INSTEAD OF STYLE TAG -->
-    <style>
-        body{
-            display: flex;
-            justify-content: center;
-        }
-        form{
-            margin-top: 100px;
-            padding: 10px 20px;
-            border: 1px solid grey;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        input, textarea{
-            border-radius: 10px;
-            margin: 20px;
-            padding: 10px;
-            font-size: larger;
-        }
-        p{
-            font-size: large;
-            font-family: sans-serif;
-            max-width: 70%;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="css/respond.css">
 </head>
 <body>
     <!-- INCLUDE PAGE HEADER HERE-->

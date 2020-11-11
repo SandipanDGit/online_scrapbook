@@ -7,29 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENTRY</title>
-    
-    <!-- SEPARATE CSS FILE TO BE LINKED HERE INSTEAD OF STYLE TAG -->
-    <style>
-        body{
-            display: flex;
-            justify-content: center;
-        }
-        form{
-            margin-top: 150px;
-            border: 1px solid grey;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        input{
-            border-radius: 10px;
-            margin: 20px;
-            padding: 10px;
-            font-size: larger;
-        }
-    </style>
+    <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
     <!-- INCLUDE PAGE HEADER HERE-->
