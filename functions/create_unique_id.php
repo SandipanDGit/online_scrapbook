@@ -5,7 +5,7 @@
         $id = "";
         $str = "";
         $str .= "0123456789";
-        $str = "abcdefghijklmnopqrstuvwxyz";
+        $str .= "abcdefghijklmnopqrstuvwxyz";
         $str .= "0123456789";
         $str .= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $str .= "0123456789";
