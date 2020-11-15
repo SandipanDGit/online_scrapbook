@@ -16,7 +16,7 @@
     <form action="functions/signup_control.php" method="post">
 
         <input id="name" name="username" type="text" placeholder="Enter your name"><br>
-        <input type="submit" name="create_link" value="Create my link">
+        <input type="submit" name="submit_signup_form" value="Create my link">
     </form>
 </body>
 </html>

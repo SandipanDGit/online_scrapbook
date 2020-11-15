@@ -9,8 +9,8 @@ class user_db{
     private $password = "";
     private $db_name = "project_game";
     private $pdo = "";      //PDO object
-    private $password_min_length = 4;
-    private $username_min_length = 4;
+    private $password_min_length = 3;
+    private $username_min_length = 1;
 
     /////////////////////// CONNECT /////////////////////
     private function connect(){
@@ -46,9 +46,10 @@ class user_db{
         if(!$is_executed){
             return 3;
         }
-        $result = $stmt->fetchAll();   //$result should contain list of user_id as array
-        foreach($result[0] as $item){
-            if($item == $user_id){
+        // $result = $stmt->fetchAll();   //$result should contain list of user_id as array
+        
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            if($row['user_id'] == $user_id){
                 return 1;
             }
         }
@@ -133,9 +134,43 @@ class user_db{
         return array(1,1);
     }
 
+
+    /////////////////////// AUTHENTICATE USER /////////////////////
+    public function authenticate($user_id, $password){
+        //on success, returns [1, 1]
+        //on failure, returns [0,error message]
+
+        //CONNECT TO DATABASE
+        if(!$this->pdo){
+            if(!$this->connect()){
+                return array(0, "database connection failed", 0, 0);
+            }
+        }
+        //FETCH RECORD
+        $sql = "select password from users where user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        try{
+            $stmt->execute([$user_id]);
+        }
+        catch(Exception $e){
+            return array(0, "database query failed", 0, 0);
+        }
+        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(!$record){
+            return array(0, "user not found", 0, 0);
+        }
+        if(password_verify($password, $record["password"])){
+            return array(1, 1);
+        }
+        else{
+            return array(0, "password mismatch");
+        }
+    }
+
+
     /////////////////////// FETCH USER DATA /////////////////////
     public function fetch_user($user_id){
-        //on success, returns [1, $username, $last_activity, $password]
+        //on success, returns [1, $username, $password, $last_activity]
         //on failure, returns [0,error message,0,0]
 
         //CONNECT TO DATABASE
@@ -146,7 +181,7 @@ class user_db{
         }
         //FETCH RECORD
         $sql = "select username, password, last_activity from users where user_id = ?";
-        $stmt = $self->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         try{
             $stmt->execute([$user_id]);
         }
@@ -274,7 +309,5 @@ class user_db{
         return array(1,1);
     }
 }
-
-$db = new user_db;
 
 ?>
