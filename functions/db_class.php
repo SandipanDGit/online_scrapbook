@@ -134,7 +134,6 @@ class user_db{
         return array(1,1);
     }
 
-
     /////////////////////// AUTHENTICATE USER /////////////////////
     public function authenticate($user_id, $password){
         //on success, returns [1, 1]

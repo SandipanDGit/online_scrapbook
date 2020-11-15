@@ -1,11 +1,15 @@
+TODO
+''''''
+1. configure .ini file - session.use_strict_mode = true 
+2. handle what happens when authorized user hits signup.php
+
 DIRECTORY STRUCTURE
 ''''''''''''''''''
 1. presentation/interface files are in root directory. these pages are directly accessed by users.
-2. controllers(that receives the data from interfaces) and the database controllers are in /functions directory
+2. controllers(that aid the interfaces) and the database controllers are in /functions directory
 3. design support elements such as pictures, illustrations, logos will be in /resources directory
 4. javscript files will be in /js directory
 5. css files will be in /css directory
-
 
 NAMING CONVENTION
 ''''''''''''''''''

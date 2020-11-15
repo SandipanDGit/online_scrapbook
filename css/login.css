@@ -1,3 +1,21 @@
+.signup{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 30px;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.signup a{
+    text-decoration: none;
+}
+.signup>button{
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: larger;
+}
 form{
     margin: 100px auto;
     max-width: 400px;
