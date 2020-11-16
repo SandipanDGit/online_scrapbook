@@ -1,32 +1,36 @@
 <?php
-session_start();
-
-require_once("functions/signup_control.php");   
-
-if($auth){
-    header("Location: dashboard.php");
-}
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENTRY</title>
+    <script src="https://kit.fontawesome.com/64d58efce2.js"></script>
     <link rel="stylesheet" href="css/signup.css">
-</head>
-<body>
-    <div class="error"><?php echo $error; ?></div>
-    <div class="login_area">
-        <button class="login_button"><a href="login.php">Login</a></button>
-    </div>
+ </head>
+ <body>
+    <!-- INCLUDE PAGE HEADER HERE-->
     
     <!-- THIS FORM WILL BE SUBMITTED BY JAVASCRIPT, OVERRIDING THE DEFAULT SUBMIT BEHAVIOUR -->
-    <form action="signup.php" method="post">
-
-        <input id="name" name="username" type="text" placeholder="Enter your name"><br>
-        <input type="submit" name="submit_signup_form" value="Create my link">
-    </form>
-</body>
+   <div class="container">
+      <div class="form-container">
+          <div class="username">
+              <form action="functions/signup_control.php" method="post">
+                  <div class="image">
+                    <img src="single_user.png" > 
+                  </div>
+                  <div class="input-field">
+                      <i class="fas fa-user"></i>
+                      <input id="name" name="username" type="text" placeholder="Enter your name"><br>
+                  </div>
+                 <input type="submit" name="create_link" value="Generate Link" class="xyz"><br>
+                 <input type="submit" name="login" value="LogIn" class="xyz">
+               </form>
+          </div>
+      </div>    
+   </div>
+    
+ </body>
 </html>

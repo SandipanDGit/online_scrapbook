@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+form{
+    margin-top: 100px;
+    padding: 10px 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input, textarea{
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    font-size: larger;
+}
+p{
+    font-size: large;
+    font-family: sans-serif;
+    max-width: 70%;
+    text-align: center;
+}
