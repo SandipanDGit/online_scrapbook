@@ -5,7 +5,7 @@ $auth = false;
 $error = "";
 
 if(isset($_SESSION['user_id'])){
-    if($_GET['logout'] == 1){
+    if(isset($_GET['logout'])){
 
         $_SESSION = array();
         if (ini_get("session.use_cookies")) {

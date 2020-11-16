@@ -24,7 +24,7 @@ if($auth){
     
     <!-- THIS FORM WILL BE SUBMITTED BY JAVASCRIPT, OVERRIDING THE DEFAULT SUBMIT BEHAVIOUR -->
     <form action="signup.php" method="post">
-
+        <div class="header">CREATE A LINK AND SHARE NOW</div>
         <input id="name" name="username" type="text" placeholder="Enter your name"><br>
         <input type="submit" name="submit_signup_form" value="Create my link">
     </form>

@@ -21,14 +21,22 @@
 }
 form{
     margin: 150px auto auto auto;
-    max-width: 300px;
-    max-height: 300px;
+    padding: 30px;
+    max-width: 450px;
+    max-height: 400px;
     border: 1px solid grey;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 0px 9px grey;
+}
+.header{
+    font-size: x-large;
+    text-align: center;
+    margin: 10px 10px 20px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 input{
     border-radius: 10px;
