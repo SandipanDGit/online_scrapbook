@@ -19,7 +19,7 @@
           <div class="username">
               <form action="functions/signup_control.php" method="post">
                   <div class="image">
-                    <img src="single_user.png" > 
+                    <img src="resources/single_user.png" > 
                   </div>
                   <div class="input-field">
                       <i class="fas fa-user"></i>
