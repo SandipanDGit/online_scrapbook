@@ -29,4 +29,3 @@ if($auth){
         <input type="submit" name="submit_signup_form" value="Create my link">
     </form>
 </body>
-</html>
