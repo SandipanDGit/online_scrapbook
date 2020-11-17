@@ -1,13 +1,16 @@
 <?php
     require_once("functions/response_control.php"); //sets session, $hit, $error
-    if($hit == 2){  //response successfully recorded
-        header("Location: response_success.php?username=$username&respondant=$respondant");
-    }
-    else if($hit == 1){
+    if($hit == 1){
         //fresh page load
     }
-    else{
-        //check and print error
+    else if($hit == 2 && $error === null){  //response successfully recorded
+        header("Location: response_success.php");
+    } 
+    else if($hit == 2 && strlen($error)>0){
+        //same as fresh page, hidden fields in form populated. but shows and error
+    }
+    else if($hit == 0){
+        header("Location: signup.php");
     }
 ?>
 <!DOCTYPE html>
@@ -25,11 +28,11 @@
     <!-- THIS FORM WILL BE SUBMITTED BY JAVASCRIPT, OVERRIDING THE DEFAULT SUBMIT BEHAVIOUR -->
     <form action="respond.php" method="post">
         <div class="error"><?php echo $error; ?></div>
-        <p class="prompt">HEY, I AM <?php if(!$error)echo $username; ?>, DROP A SECRET MESSAGE FOR ME</p>
+        <p class="prompt">HEY, I AM <?php if($hit == 1)echo $username; ?>, DROP A SECRET MESSAGE FOR ME</p>
         
         <input type="hidden" name="id" value="<?php  if($hit == 1)echo $user_id; ?>">
         <input type="hidden" name="username" value="<?php  if($hit == 1)echo $username; ?>">
-        <input id="responder" name="respondant" type="text" placeholder="Write your name..."><br>
+        <input id="responder" name="responder" type="text" placeholder="Write your name..."><br>
         <textarea id="response" name="response" placeholder="Write your secret message here..." rows="5" cols="30" maxlength="512"></textarea>
         <input type="submit" name="submit_response" value="Send message">
     </form>

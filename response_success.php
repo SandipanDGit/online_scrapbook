@@ -1,8 +1,8 @@
 <?php
     session_start();
-    if(isset($_GET['username']) && isset($_GET['respondant'])){
-        $username = $_GET['username'];
-        $respondant = $_GET['respondant'];
+    if(isset($_SESSION['username']) && isset($_SESSION['responder'])){
+        $username = $_SESSION['username'];
+        $respondant = $_SESSION['responder'];
     }
     else{
         header("Location: signup.php");
