@@ -297,7 +297,7 @@ class user_db{
 
         //DELETE USER
         $sql = "delete from users where user_id = ?";
-        $stmt = $self->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         try{
             $stmt->execute([$user_id]);
         }
@@ -307,6 +307,51 @@ class user_db{
 
         return array(1,1);
     }
-}
+
+    ///////////////////////// RESPOND //////////////////////////
+    public function respond($user_id, $respondant, $response_body){
+        //on success, returns [1, 1]
+        //on failure, returns [0, error message]
+
+        //CONNECT TO DATABASE
+        if(!$this->pdo){
+            if(!$this->connect()){
+                return array(0, "database connection failed");
+            }
+        }
+
+        //CHECK IF USER_ID EXISTS
+        $flag = $this->user_exists($user_id);
+        if($flag == 2){
+            return array(0, "user does not exist");
+        }
+        else if($flag == 3){
+            return array(0, "couldn't fetch user_id list");
+        }
+
+        //VALIDATE RESPONDANT'S NAME
+        list($is_validated, $validation_error) = $this->validate_username($respondant);
+        if(!$is_validated){
+            return array(0, $validation_error);
+        }
+
+        //VALIDATE RESPONSE BODY
+        if(!strlen($response_body)){
+            return array(0, "can not enter empty message");
+        }
+
+        //DO DATABASE STUFF
+        $sql = "insert into responses (user_id, respondant, response_body) values (?, ?, ?)";
+        $stmt = $this->pdo->prepare($sql);
+        try{
+            $stmt->execute([$user_id, $respondant, $response_body]);
+        }
+        catch(PDOException $e){
+            return array(0, "database query failed");
+        }
+        
+        return array(1,1); 
+    }
+}//class ends
 
 ?>

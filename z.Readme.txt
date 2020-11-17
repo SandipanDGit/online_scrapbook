@@ -1,3 +1,7 @@
+BUGS
+''''''
+1. backward from dashboard page fails, needs a reload to work. why?
+
 TODO
 ''''''
 1. configure .ini file - session.use_strict_mode = true 
