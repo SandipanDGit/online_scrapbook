@@ -352,6 +352,40 @@ class user_db{
         
         return array(1,1); 
     }
+
+    ////////////////////// FETCH RESPONSE ///////////////
+    public function fetch_responses($user_id){
+        //on success, returns [1, [array of responses]]
+        //on failure, returns [0, error message]
+
+        //CONNECT TO DATABASE
+        if(!$this->pdo){
+            if(!$this->connect()){
+                return array(0, "database connection failed");
+            }
+        }
+
+        //CHECK IF USER_ID EXISTS
+        $flag = $this->user_exists($user_id);
+        if($flag == 2){
+            return array(0, "user does not exist");
+        }
+        else if($flag == 3){
+            return array(0, "couldn't fetch user_id list");
+        }
+
+        //FETCH RESPONSE LIST
+        $sql = "select * from responses where user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        try{
+            $stmt->execute([$user_id]);
+        }
+        catch(PDOException $e){
+            return array(0, "query failed");
+        }
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return array(1, $result);
+    }
 }//class ends
 
 ?>

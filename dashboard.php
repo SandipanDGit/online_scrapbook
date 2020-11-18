@@ -3,11 +3,16 @@
 session_start();
 require_once("functions/dashboard_control.php");
 if($error){
-    if(!isset($_SESSION['source'])){    //if true, means error is session error.
-        header("Location: signup.php");
+    if($err_code == 1){ 
+        header("Location: login.php");
     }
-    else{
-        header("Location: $source");
+    else if($err_code == 2){
+        if(isset($_SESSION['source'])){
+            header("Location: $source");
+        }
+    }
+    else if($err_code == 3){
+        //print error message
     }
 }
 ?>
@@ -24,7 +29,7 @@ if($error){
     <nav class="top_nav">
         <button id="logout"><a href="login.php?logout=1">Logout</a></button>
     </nav>
-    <main class="main">
+    <div class="main">
         <div class="welcome">
             <div class="subheader">Hey <?php echo $username; ?>! Your secret admirers missed you ;-)</div>
             <div class="header">Happy Secret Scrapbooking</div>
@@ -37,7 +42,29 @@ if($error){
                 <div class="whatsapp">Whatsapp</div>
                 <div class="other">Other</div>
             </div>
-        </div>  
-    </main>
+        </div> 
+    </div>    
+    <ol class="message_list">
+        <?php if($err_code == 3): ?>
+            <li class="mli">
+                <div class="error"><?php echo $error; ?></div>
+            </li>
+        <?php elseif(count($responses)): ?>
+            <?php foreach($responses as $record): ?>
+                <li class="mli">
+                    <div class="responder"><?php echo $record['responder']; ?></div>
+                    <div class="response"><?php echo $record['response_body']; ?></div>
+                </li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li class="mli">
+                <div class="no_response">WAIT SOME MORE TO RECEIVE YOUR FIRST RESPONSE OR SHARE THE LINK ONCE AGAIN</div>
+            </li>
+        <?php endif; ?>
+    </ol> 
 </body>
 </html>
+
+
+
+

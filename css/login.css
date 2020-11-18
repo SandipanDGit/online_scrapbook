@@ -1,3 +1,7 @@
+@font-face {
+    font-family: trld;
+    src: url(../resources/trld.otf);
+  }
 .signup{
     position: absolute;
     top: 0;
@@ -31,19 +35,20 @@ form{
 input{
     margin: 20px;
     font-size: 1.2rem;
+    font-family: trld;
     border-radius: 5px;
     padding: 10px;
 }
 .header{
-    margin: 20px 20px 10px 20px;
+    margin: 20px 20px 0 20px;
     font-size: 2rem;
-    font-family: sans-serif;
+    font-family: trld;
     text-align: center;
 }
 .subheader{
     margin: 0px 10px 10px 10px;
     font-size: 1.2rem;
-    font-family: sans-serif;
+    font-family: trld;
     text-align: center;
 }
 .line{

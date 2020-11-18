@@ -35,7 +35,7 @@ if(isset($_POST['submit_login_form']) && isset($_POST['user_id']) && !empty($_PO
     if($validity){
         $auth = true;
         session_start();
-        $_SESSION['user_id'] = $user_id;
+        $_SESSION['user_id'] = $user_id;    //to be accessed in dashboard
         $_SESSION['source'] = 'login';
     }
     else{
