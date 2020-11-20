@@ -3,13 +3,14 @@
     if($hit == 1){
         //fresh page load
     }
-    else if($hit == 2 && $error === null){  //response successfully recorded
+    elseif($hit == 2 && $error == null){  //response successfully recorded
         header("Location: response_success.php");
     } 
-    else if($hit == 2 && strlen($error)>0){
+    elseif($hit == 3 && strlen($error)>0){
         //same as fresh page, hidden fields in form populated. but shows and error
+        header("location: respond.php?id=$user_id&name=$username&e=$error");
     }
-    else if($hit == 0){
+    elseif($hit == 0){
         header("Location: signup.php");
     }
 ?>
@@ -27,7 +28,7 @@
     
     <!-- THIS FORM WILL BE SUBMITTED BY JAVASCRIPT, OVERRIDING THE DEFAULT SUBMIT BEHAVIOUR -->
     <form action="respond.php" method="post">
-        <div class="error"><?php echo $error; ?></div>
+        <div class="error"><?php if($error)echo $error; ?></div>
         <p class="prompt">HEY, I AM <?php if($hit == 1)echo $username; ?>, DROP A SECRET MESSAGE FOR ME</p>
         
         <input type="hidden" name="id" value="<?php  if($hit == 1)echo $user_id; ?>">

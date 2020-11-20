@@ -309,7 +309,7 @@ class user_db{
     }
 
     ///////////////////////// RESPOND //////////////////////////
-    public function respond($user_id, $respondant, $response_body){
+    public function respond($user_id, $responder, $response_body){
         //on success, returns [1, 1]
         //on failure, returns [0, error message]
 
@@ -330,7 +330,7 @@ class user_db{
         }
 
         //VALIDATE RESPONDANT'S NAME
-        list($is_validated, $validation_error) = $this->validate_username($respondant);
+        list($is_validated, $validation_error) = $this->validate_username($responder);
         if(!$is_validated){
             return array(0, $validation_error);
         }
@@ -341,10 +341,10 @@ class user_db{
         }
 
         //DO DATABASE STUFF
-        $sql = "insert into responses (user_id, respondant, response_body) values (?, ?, ?)";
+        $sql = "insert into responses (user_id, responder, response_body) values (?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         try{
-            $stmt->execute([$user_id, $respondant, $response_body]);
+            $stmt->execute([$user_id, $responder, $response_body]);
         }
         catch(PDOException $e){
             return array(0, "database query failed");

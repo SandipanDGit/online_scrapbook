@@ -3,9 +3,17 @@ $hit = 0;
 $error = null;
 
 if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['name']) && !empty($_GET['name'])){     //fresh request with required GET params
-    $hit = 1;
-    $user_id = $_GET['id'];
-    $username = $_GET['name'];
+    if(isset($_GET['e'])){
+        $hit = 1;
+        $error = $_GET['e'];
+        $user_id = $_GET['id'];
+        $username = $_GET['name'];
+    }
+    else{
+        $hit = 1;
+        $user_id = $_GET['id'];
+        $username = $_GET['name'];
+    }
 }
 else if(isset($_POST['submit_response']) && isset($_POST['id']) && !empty($_POST['id'])     //2nd request with POST form data 
     && isset($_POST['username']) && !empty($_POST['username'])){
@@ -16,6 +24,8 @@ else if(isset($_POST['submit_response']) && isset($_POST['id']) && !empty($_POST
         $username = $_POST['username'];
         $responder = $_POST['responder'];
         $response = $_POST['response'];
+
+        echo "form is ok";
 
         require_once("db_class.php");
         $db = new user_db;
@@ -28,6 +38,9 @@ else if(isset($_POST['submit_response']) && isset($_POST['id']) && !empty($_POST
             $_SESSION['responder'] = $responder;
             $hit = 2;
             $error = null;
+        }
+        else{
+            $hit = 3;
         }
     }
     else{   //same as fresh page laod but with error
