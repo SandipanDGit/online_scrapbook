@@ -38,9 +38,11 @@ if($error){
         <div class="share">
             <div class="share_text">Share this link to receive secret messages</div>
             <div class="social_buttons">
-                <div class="fb">FB</div>
+                <div class="fb"> <a href="https://www.facebook.com/sharer/sharer.php?u= '<?= $link ?>'" target="_blank">
+        
+      FB</a></div>
                 <div class="whatsapp">Whatsapp</div>
-                <div class="other">Other</div>
+                <div class="other"><a href="https://chart.apis.google.com/chart?chs=150x150&cht=qr&chl='<?= $link ?>'&choe=UTF-8">Other</a></div>
             </div>
         </div> 
     </div>    
