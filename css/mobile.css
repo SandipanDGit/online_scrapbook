@@ -1,0 +1,65 @@
+.container{
+    margin-top:-166px;
+}
+#navbar
+{
+    flex-direction: column;
+    align-items: center;
+}
+#navbar .logo{
+    margin-bottom: 0.60rem;
+    align-items: center;
+}
+form{
+    margin-top: 150px;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+}
+.content-box{ 
+    padding: 0.2rem 1rem;
+}
+#main-footer {
+    padding: 20px;
+    height: 63px;
+    bottom:0;
+}
+@media(max-width:280px){
+
+    .container{
+        margin-top:;
+    }
+
+    #navbar ul li a{
+        color:#fff;
+        margin: 0 0.40rem;
+        padding: 0.2rem;
+    }
+    form{
+        margin-top: 150px;
+        padding: 1rem 0.2rem;
+        border-radius: 10px;
+    }
+    form>input{
+        width:235px;
+    }
+    .content-box{ 
+        padding: 0.5rem 0.5rem;
+        margin-top: 50px;
+        border-radius:10px;
+    }
+    #pp{
+        padding: 0px 5px;   
+    }
+    #tt{
+        padding: 0px 5px;  
+    }
+}
+@media(max-width:337px)
+{
+    #pp{
+        padding: 0px 3px;   
+    }
+    #tt{
+        padding: 0px 3px;  
+    }
+}

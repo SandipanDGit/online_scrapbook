@@ -1,0 +1,87 @@
+@font-face {
+    font-family: trld;
+    src: url(../resources/trld.otf);
+  }
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family:  trld;
+}
+a{
+    text-decoration: none;
+}
+
+/* Navbar */
+#navbar {
+    display: flex;
+    position: sticky;
+    top:0;
+    background:rgb(21,23,30);
+    color: #fff;
+    justify-content: space-between;
+    z-index: 1;
+    padding: 1rem;
+}
+#navbar h1 a{
+    color:#FB852F;
+}
+#navbar ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+#navbar ul li a{
+    color:#fff;
+    margin: 0 0.75rem;
+    padding: 0.25rem;
+}
+#navbar ul li :hover{
+    background:#FB852F ;
+    border-radius: 5px;
+}
+
+/*Body*/
+.container{
+    background:#08090C center center;
+    height: 100vh ;
+    color:#fff;
+    margin-top:-130px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+ .content-box{ 
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    background:rgb(21,23,30);
+    padding: 0.5rem 2rem;
+    margin-top: 50px;
+    border-radius:10px;
+}
+
+ #main-footer {
+    position: sticky;
+    bottom:0;
+    background:rgb(21,23,30);
+    text-align: center;
+    padding: 20px;
+    height: 60px;
+}
+#pp{
+    padding: 0px 20px;
+    color: #fff;
+}
+#tt{
+    padding: 0px 20px;
+    color: #fff;
+    
+}
