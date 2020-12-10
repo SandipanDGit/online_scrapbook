@@ -19,12 +19,10 @@ if($auth){
     <title>Login</title>
 </head>
 <body>
-    <div class="error"><?php if($error){echo $error;} ?></div>
     <nav id="navbar">
-      <h1 class="logo"><a href=project.html>ST</a></h1>
+      <h1 class="logo"><a href=project.html>Secret Talk</a></h1>
       <ul>
         <li><a href="signup.php">Sign Up</a></li>
-        <li><a href="login.php">Sign In</a></li>
         <li><a href="contact.php">Contact</a></li> 
       </ul>
     </nav>
@@ -32,24 +30,23 @@ if($auth){
      <div class="box">
 
       <form id="login_form" action="login.php" method="post">
-
-         <h2>LOGIN</h2>
+      <?php if($error): ?>
+        <div class="error"><?php {echo $error;} ?></div>
+       <?php endif; ?>
+        
+        <h2>LOGIN</h2>
         <input type="text" name="user_id" id="user_id" placeholder="User ID">
         <input type="password" name="password" id="password" placeholder="Secret key">
-        <input type="submit" value="GET" id="sub" name="submit_login_form">
+        <input type="submit" value="LOGIN >" id="sub" name="submit_login_form">
       </form>
-
-
     </div>
    </div>
-   <footer id="main-footer">
-     
-     <div class="footer">
-       <a href="#" id="pp">Privacy Policy</a>
    
+   <footer id="main-footer">
+      <div class="footer">
+       <a href="#" id="pp">Privacy Policy</a>
        <a href="#" id="tt">Terms of Use</a>
      </div>
-   
    </footer>
 
 

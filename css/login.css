@@ -2,13 +2,17 @@
     font-family: trld;
     src: url(../resources/trld.otf);
   }
-  *{
+  @import url('https://fonts.googleapis.com/css2?family=Texturina:wght@200&display=swap');
+*{
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
 body{
-    font-family: trld;
+    background:#08090C center center;
+    font-family: 'Texturina';
+    margin: 0;
+    padding: 0;
 }
 a{
     text-decoration: none;
@@ -19,34 +23,37 @@ a{
     display: flex;
     position: sticky;
     top:0;
-    background:rgb(21,23,30);
+    background:rgb(26, 29, 39);
     color: #fff;
     justify-content: space-between;
     z-index: 1;
     padding: 1rem;
+    box-shadow: 0 0 8px grey;
 }
 #navbar h1 a{
-    color:#FB852F;
+    color:#ff7b1d;
 }
 #navbar ul{
     display: flex;
     align-items: center;
     list-style: none;
 }
+
 #navbar ul li a{
     color:#fff;
-    margin: 0 0.75rem;
-    padding: 0.25rem;
-}
-#navbar ul li :hover{
-    background:#FB852F ;
+    margin: 0 1rem;
+    padding: 0.35rem;
     border-radius: 5px;
 }
 
+#navbar ul li:hover{
+    padding: 3px 5px;
+    border-radius: 7px;
+    background:#ff7b1d ;
+}
 /*Body*/
 .container{
-    background:#08090C center center;
-    height: 100vh ;
+    height: 100vh;
     color:#fff;
     margin-top:-123px;
 }
@@ -65,14 +72,20 @@ form{
     justify-content: center;
     align-items: center;
     margin-top: 150px;
-    background:rgb(21,23,30);
-    padding: 2rem 2rem;
+    background:rgb(26, 29, 39);
+    padding: 1.6rem 2.5rem;
     border-radius: 10px;
-
+}
+.error{
+    color: white;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid red;
 }
 form>h2{
     margin-bottom:20px ;
-    color: #FB852F;
+    color: #ff7b1d;
 }
 
 form>input{
@@ -82,12 +95,15 @@ form>input{
     margin-bottom: 20px;
     border-radius: 50px;
     outline: none;
-    text-align: center;
     border:1px #213B52 solid;
+    font-size: 1rem;
+    color: #213B52;
+    padding: 3px 20px 3px 20px;
 }
 form>input::placeholder{
+    text-align: center;
     font-size: 1rem;
-    color: #aaa;
+    color: #213B52;
     font-weight: 500;
 }
 
@@ -98,39 +114,41 @@ form>input::placeholder{
     outline:none;
     border-radius:40px;
     cursor:pointer;
-    background-color:#FC8A2D;
+    background-color:#ff7b1d;
     color:#fff;
     font-weight: bold;
 }
 
 #sub:hover{
-    background-color:#e48c09f5;
+    background-color:#ff5100f5;
+    color: white;
 }
 
 .content-box{
     display: inline-block;
     color: #fff;
-    background:rgb(21,23,30);
+    background:rgb(26, 29, 39);
     padding: 0.5rem 2rem;
     margin-top: 50px;
     border-radius:10px;
 }
 /*footer*/
- #main-footer{
-    position: sticky;
+footer{
+    position: absolute;
     bottom:0px;
+    width: 100%;
     color: #fff;
-    background:rgb(21,23,30);
+    background:rgb(26, 29, 39);
     padding: 20px;
     text-align: center;
     height: 60px;
+    box-shadow: 0 0 8px grey;
  }
- #pp{
+#pp{
     padding: 0px 20px;
     color: #fff;
 }
 #tt{
     padding: 0px 20px;
-    color: #fff;
-    
+    color: #fff;  
 }

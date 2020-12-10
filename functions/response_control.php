@@ -25,7 +25,7 @@ else if(isset($_POST['submit_response']) && isset($_POST['id']) && !empty($_POST
         $responder = $_POST['responder'];
         $response = $_POST['response'];
 
-        echo "form is ok";
+        // echo "form is ok";
 
         require_once("db_class.php");
         $db = new user_db;
