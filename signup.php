@@ -32,11 +32,9 @@ if($auth){
     </nav>
     <div class="container">
      <div class="box">
-<<<<<<< HEAD
-      <form action="index.php" method="post">
-=======
+
       <form action="signup.php" method="post">
->>>>>>> ded0f91f5a9f38f88feba2d2e7cffbd1da26309c
+
           <?php if($error): ?>
             <div class="error"><?php {echo $error;} ?></div>
           <?php endif; ?>
