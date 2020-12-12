@@ -22,7 +22,10 @@ if($error){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+<<<<<<< HEAD
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+=======
+>>>>>>> ded0f91f5a9f38f88feba2d2e7cffbd1da26309c
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
@@ -40,11 +43,19 @@ if($error){
             <div class="welcome">
                 <div class="header">Hey <?php echo $username; ?>!</div>
                 <div class="subheader">Your admirers missed you</div>
+<<<<<<< HEAD
             </div>
             <div class="link">
                 <div id="link_text" class="link_text"><?php echo $link ?></div>
                 <div id="copy_wrap"><i id="copy_button" class="copy_button fas fa-clipboard fa-2x" data-clipboard-target="#link_text"></i></div>
             </div>
+=======
+            </div>
+            <div class="link">
+                <div id="link_text" class="link_text"><?php echo $link ?></div>
+                <div id="copy_wrap"><i id="copy_button" class="copy_button fas fa-clipboard fa-2x" data-clipboard-target="#link_text"></i></div>
+            </div>
+>>>>>>> ded0f91f5a9f38f88feba2d2e7cffbd1da26309c
             <div class="share">
                 <div class="share_text">Share this link to receive secret messages</div>
                 <div class="social_buttons">
@@ -101,6 +112,7 @@ if($error){
             <a href="#" id="tt">Terms of Use</a>
         </div>
     </footer>
+<<<<<<< HEAD
 
     <script>
         
@@ -132,6 +144,36 @@ if($error){
 </body>
 </html>
 
+=======
+>>>>>>> ded0f91f5a9f38f88feba2d2e7cffbd1da26309c
 
+    <script>
+        
+        let password = document.querySelector("#cred_password");
+        let icon = document.querySelector("#vis_icon");
+        icon.addEventListener("click", (e)=>{
+            console.log("ok");
+            if (password.getAttribute("type") === "password") {
+                password.setAttribute("type","text");
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                password.setAttribute("type","password");
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        })
 
+        let copy_button = document.querySelector("#copy_button")
+        copy_button.addEventListener("mousedown", ()=>{
+            copy_button.style.transform="scale(1.1)";
+            console.log("ok");
+        })
+        copy_button.addEventListener("mouseup", ()=>{
+            copy_button.style.transform="scale(1)";
+            console.log("ok");
+        })
+    </script>
+</body>
+</html>
 
