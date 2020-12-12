@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Talk</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <meta name="description" content="Welcome to the best secret talk app">
     <meta name="keywords"  content="secret,question,answer,message">
     <link rel="stylesheet" href="css/contact.css">
@@ -13,9 +14,9 @@
 </head>
 <body>
     <nav id="navbar">
-      <h1 class="logo"><a href=project.html>ST</a></h1>
+      <h1 class="logo"><a href=project.html>Secret Talk</a></h1>
       <ul>
-        <li><a href="signup.php">Sign Up</a></li>
+        <li><a href="index.php">Sign Up</a></li>
         <li><a href="login.php">Sign In</a></li>
         <li><a href="contact.php">Contact</a></li> 
       </ul>

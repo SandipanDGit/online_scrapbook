@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $auth = false;
 $error = "";
@@ -37,13 +36,11 @@ if(isset($_POST['submit_login_form']) && isset($_POST['user_id']) && !empty($_PO
         session_start();
         $_SESSION['user_id'] = $user_id;    //to be accessed in dashboard
         $_SESSION['source'] = 'login';
+        header("Location: dashboard.php");
     }
     else{
         //login page will check $auth, $error and act accordingly
     }
 }
-else{      
-}
-
 ?>
 

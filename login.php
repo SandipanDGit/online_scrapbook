@@ -2,9 +2,9 @@
 require_once("functions/login_control.php");
 
 //check $auth and $error
-if($auth){
-    header("Location: dashboard.php");
-}
+//if($auth){
+ //   header("Location: dashboard.php");
+//}
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +17,13 @@ if($auth){
     <link rel="stylesheet" media="screen and (min-width:1100px)" href="widescreen.css">
     <script src="https://kit.fontawesome.com/b06791e85d.js" crossorigin="anonymous"></script>
     <title>Login</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 </head>
 <body>
-    <div class="error"><?php if($error){echo $error;} ?></div>
     <nav id="navbar">
-      <h1 class="logo"><a href=project.html>ST</a></h1>
+      <h1 class="logo"><a href=project.html>Secret Talk</a></h1>
       <ul>
-        <li><a href="signup.php">Sign Up</a></li>
-        <li><a href="login.php">Sign In</a></li>
+        <li><a href="index.php">Sign Up</a></li>
         <li><a href="contact.php">Contact</a></li> 
       </ul>
     </nav>
@@ -32,24 +31,23 @@ if($auth){
      <div class="box">
 
       <form id="login_form" action="login.php" method="post">
-
-         <h2>LOGIN</h2>
+      <?php if($error): ?>
+        <div class="error"><?php {echo $error;} ?></div>
+       <?php endif; ?>
+        
+        <h2>LOGIN</h2>
         <input type="text" name="user_id" id="user_id" placeholder="User ID">
         <input type="password" name="password" id="password" placeholder="Secret key">
-        <input type="submit" value="GET" id="sub" name="submit_login_form">
+        <input type="submit" value="LOGIN >" id="sub" name="submit_login_form">
       </form>
-
-
     </div>
    </div>
-   <footer id="main-footer">
-     
-     <div class="footer">
-       <a href="#" id="pp">Privacy Policy</a>
    
+   <footer id="main-footer">
+      <div class="footer">
+       <a href="#" id="pp">Privacy Policy</a>
        <a href="#" id="tt">Terms of Use</a>
      </div>
-   
    </footer>
 
 
