@@ -23,11 +23,9 @@ require_once("functions/login_control.php");
     <nav id="navbar">
       <h1 class="logo"><a href=project.html>Secret Talk</a></h1>
       <ul>
-<<<<<<< HEAD
-        <li><a href="index.php">Sign Up</a></li>
-=======
+
         <li><a href="signup.php">Sign Up</a></li>
->>>>>>> ded0f91f5a9f38f88feba2d2e7cffbd1da26309c
+
         <li><a href="contact.php">Contact</a></li> 
       </ul>
     </nav>
