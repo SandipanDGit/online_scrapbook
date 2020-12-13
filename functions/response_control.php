@@ -24,12 +24,18 @@ else if(isset($_POST['submit_response']) && isset($_POST['id']) && !empty($_POST
         $username = $_POST['username'];
         $responder = $_POST['responder'];
         $response = $_POST['response'];
+        if(isset($_POST['real_name']) && !empty($_POST['real_name'])){
+            $real_name = $_POST['real_name'];
+        }
+        else{
+            $real_name = $responder;
+        }
 
         // echo "form is ok";
 
         require_once("db_class.php");
         $db = new user_db;
-        list($validity, $error) = $db->respond($user_id, $responder, $response);
+        list($validity, $error) = $db->respond($user_id, $responder, $real_name, $response);
         if($validity == 1 && $error == 1){
 
             session_start();

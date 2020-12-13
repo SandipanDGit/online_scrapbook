@@ -19,7 +19,7 @@ else{
       $error = $username;   //if $validity is 0, 2nd value in return contains error 
    }
    else{
-      $link = 'localhost/project_game/respond.php?id=' . $user_id . "&name=" . $username;
+      $link = 'localhost/online_scrapbook/respond.php?id=' . $user_id . "&name=" . $username;
       
       //fetch response list
       list($validity, $responses) = $db->fetch_responses($user_id);

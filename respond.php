@@ -46,6 +46,8 @@
         <input type="hidden" name="id" value="<?php  if($hit == 1)echo $user_id; ?>">
         <input type="hidden" name="username" value="<?php  if($hit == 1)echo $username; ?>">
         <input id="responder" name="responder" type="text" placeholder="Write your name..."><br>
+        <label for="real_name">Your real name is optional. If given, it is disclosed only after 24 hours...</label>
+        <input id="real_name" name="real_name" type="text" placeholder="Your real name..."><br>
         <textarea id="response" name="response" placeholder="Write your secret message here..." rows="5" cols="30" maxlength="512"></textarea>
         <input type="submit" name="submit_response" id="sub" value="Send message">
       </div>

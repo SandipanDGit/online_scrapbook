@@ -85,6 +85,22 @@ if($error){
                     <li class="mli">
                         <div class="responder"><?php echo $record['responder']; ?></div>
                         <div class="response"><?php echo $record['response_body']; ?></div>
+
+                        <?php 
+                                                       
+                            date_default_timezone_set('Asia/Kolkata');
+                            // echo "<br>current time : " . time();
+                            // echo "<br>current time : " . date('d-m-Y h:i:sa', time());
+                            // echo "<br>response time : " . strtotime($record['response_time']);
+                            // echo "<br>response time : " . date('d-m-Y h:i:sa', strtotime($record['response_time']));
+                            $diff = time() - strtotime($record['response_time']);
+                            // echo "<br>" . $diff;
+
+                            if($record['responder'] != $record['real_name'] && $diff>60){
+                                echo "<br>Real name : " . $record['real_name'];
+                            }
+
+                        ?>
                     </li>
                 <?php endforeach; ?>
             <?php else: ?>

@@ -309,7 +309,7 @@ class user_db{
     }
 
     ///////////////////////// RESPOND //////////////////////////
-    public function respond($user_id, $responder, $response_body){
+    public function respond($user_id, $responder, $real_name, $response_body){
         //on success, returns [1, 1]
         //on failure, returns [0, error message]
 
@@ -340,11 +340,18 @@ class user_db{
             return array(0, "can not enter empty message");
         }
 
+        //VALIDATE REAL NAME 
+        list($is_validated, $validation_error) = $this->validate_username($real_name);
+        if(!$is_validated){
+            return array(0, "real name : " . $validation_error);
+        }
+        
+
         //DO DATABASE STUFF
-        $sql = "insert into responses (user_id, responder, response_body) values (?, ?, ?)";
+        $sql = "insert into responses (user_id, responder, real_name, response_body) values (?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         try{
-            $stmt->execute([$user_id, $responder, $response_body]);
+            $stmt->execute([$user_id, $responder, $real_name, $response_body]);
         }
         catch(PDOException $e){
             return array(0, "database query failed");
@@ -375,7 +382,7 @@ class user_db{
         }
 
         //FETCH RESPONSE LIST
-        $sql = "select * from responses where user_id = ?";
+        $sql = "select user_id, responder, real_name, response_body, response_time from responses where user_id = ?";
         $stmt = $this->pdo->prepare($sql);
         try{
             $stmt->execute([$user_id]);
