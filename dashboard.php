@@ -62,11 +62,11 @@ if($error){
                 <form id="credentials" action="#" method="post">
                     <div class="userid">
                         <label class="l" for="userid">User ID</label>
-                        <input type="text" name="userid" id="cred_userid" placeholder="<?php echo $user_id ?>"><br>
+                        <input type="text" name="userid" id="cred_userid" placeholder="<?php echo $user_id; ?>"><br>
                     </div>
                     <div class="password">
                         <label class="l" for="userid">Password</label>
-                        <input type="password" name="password" id="cred_password" value="<?php echo substr($user_id, -3) ?>"><i id="vis_icon" class="fas fa-eye"></i><br>
+                        <input type="password" name="password" id="cred_password" value="<?php echo $password; ?>"><i id="vis_icon" class="fas fa-eye"></i><br>
                         <!-- <label for="password"></label> -->
                     </div>
                     <!-- <i class="fas fa-eye-slash"></i>  -->

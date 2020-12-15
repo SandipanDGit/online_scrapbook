@@ -117,15 +117,16 @@ class user_db{
             return array(0, $validation_error);
         }
 
+        //!!!!NO ENCRYPTION IS BEING DONE BECAUSE WE NEED TO RETRIEVE THE PASSWORD AS PLAIN TEXT
         //ENCRYPT PASSWORD
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        if(!$hash) return array(0, "password hash failed");
+        // $hash = password_hash($password, PASSWORD_DEFAULT);
+        // if(!$hash) return array(0, "password hash failed");
 
         //CREATE USER
         $sql = "insert into users (user_id, username, password) values(?,?,?)";
         $stmt = $this->pdo->prepare($sql);
         try{
-            $stmt->execute([$user_id, $username, $hash]);
+            $stmt->execute([$user_id, $username, $password]);
         }
         catch(Exception $e){
             return array(0, "user creation query failed");

@@ -13,12 +13,12 @@ if(isset($_POST['submit_signup_form']) && isset($_POST['username']) && !empty($_
     }
 
     //generate unique id
-    $unique_string = create_unique_id(3);
+    $unique_string = create_unique_id(2);
 
     //create user_id and initial password
     $username = $_POST['username'];
     $user_id = $_POST['username'] . $unique_string;
-    $password = $unique_string;
+    $password = create_unique_id_num(4);
     
     // do database stuff
     $db = new user_db;
